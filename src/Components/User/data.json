@@ -1,0 +1,34 @@
+[
+    {
+      "Name": "Ratnesh",
+      "Role": "Lead Manager",
+      "Status": "Working"
+      
+    },
+    {
+      "Name": "Arvind",
+      "Role": "Junior Designer",
+      "Status": "Working"
+      
+    },
+    {
+      "Name": "Danny",
+      "Role": "Senior Designer",
+      "Status": "Working"
+      
+    },
+    {
+      "Name": "John",
+      "Role": "Superviser",
+      "Status": "Working"
+      
+    }
+    ,
+    {
+      "Name": "Jack",
+      "Role": "Visualizer",
+      "Status": "Working"
+      
+    }
+  ]
+  
