@@ -338,7 +338,7 @@ const App = () => {
   {paginatedData.map((item, index) => (
     <tr
       key={index}
-      className={`${selectedRows.includes(index) ? '' : ''} hover:bg-gray-100`}
+      className={`${selectedRows.includes(index) ? '' : ''} hover:bg-gray-100 cursor-pointer`}
       onClick={toggleDrawer('right',true)}
     >
 

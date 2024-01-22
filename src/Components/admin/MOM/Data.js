@@ -114,7 +114,8 @@ const App = () => {
 
   const handleProjectClick = (url) => {
     // Navigate to the user's URL when the project name is clicked
-    window.location.href = url;
+    window.open(url, '_blank');
+    
   };
 
   
@@ -317,7 +318,7 @@ const App = () => {
         column !== 'Project_Type' && (
           <td
             key={column}
-            className={`border-b-2 p-4 pl-6 text-wrap`}
+            className={`border-b-2 p-4 pl-6 text-wrap hover:cursor-pointer`}
           >
             {column === 'ProjectName' ? (
               <div>

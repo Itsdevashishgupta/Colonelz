@@ -134,7 +134,7 @@ const App = () => {
   }, [data, searchText, selectedFilters, sortColumn, sortOrder, rowsPerPage]);
   const handleProjectClick = (url) => {
     // Navigate to the user's URL when the project name is clicked
-    window.location.href = url;
+    window.open(url, '_blank');
   };
 
   const handleJumpToPageChange = (e) => {
