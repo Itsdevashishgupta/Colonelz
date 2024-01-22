@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import Dashboard from "./Components/Dashboard/Dashboard";
+import Dashboard from "./Components/admin/Dashboard/Dashboard";
 
 import {  useMode } from "./theme";
-import Project from "./Components/Project/Project";
-import  Inventory  from './Components/Inventory/inventory'
-import MOM from './Components/MOM/MOM'
-import Lead from './Components/Lead/Lead'
-import User from './Components/User/User'
-import Client from './Components/User/Client'
+import Project from "./Components/admin/Project/Project";
+import  Inventory  from './Components/admin/Inventory/inventory'
+import MOM from './Components/admin/MOM/MOM'
+import Lead from './Components/admin/Lead/Lead'
+import User from './Components/admin/User/User'
+import Client from './Components/admin/User/Client'
 
 function App() {
   const [theme, colorMode] = useMode();
