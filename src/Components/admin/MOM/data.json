@@ -1,28 +1,23 @@
 [
-    {"Material Type ":"Laminate",
-      "Material Code": "AB52E",
-      "Company Name": "Kajaria",
-      "Remarks": "Kajaria"
+    {"Project Name":"Devashish Project",
+      "Source of Meeting": "In Office",
+      "Latest Meeting": "22-01-2023"
     },
-    {"Material Type ":"Laminate",
-      "Material Code": "AB52E",
-      "Company Name": "Godrej",
-      "Remarks": "Kajaria"
+    {"Project Name":"Arvind Project",
+      "Source of Meeting": "Online Meeting",
+      "Latest Meeting": "22-01-2023"
     },
-    {"Material Type ":"Laminate",
-      "Material Code": "AB52EChair",
-      "Company Name": "Sleep Well",
-      "Remarks": "Kajaria"
+    {"Project Name":"Mobile App Development",
+      "Source of Meeting": "At Client Place",
+      "Latest Meeting": "22-01-2023 "
     },
-    {"Material Type ":"Laminate",
-      "Material Code": "AB52EMachine",
-      "Company Name": "Godrej",
-      "Remarks": "Kajaria"
+    {"Project Name":"E-Commerce",
+      "Source of Meeting": "On Site",
+      "Latest Meeting": "22-01-2023"
     },
-    {"Material Type ":"Laminate",
-      "Material Code": "AB52E",
-      "Company Name": "Sleep Well",
-      "Remarks": "Kajaria"
+    {"Project Name":"Marketing Campaign",
+      "Source of Meeting": "Online Meeting",
+      "Latest Meeting": "22-01-2023 "
     }
    
   ]

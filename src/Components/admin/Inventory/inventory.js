@@ -52,7 +52,7 @@ function App() {
             <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-6 rounded-md">
             <Users/><h2 className="ml-3">Lead Management</h2></button>
           </Link>
-          <Link to="https://master.d1iuo6abnc6erf.amplifyapp.com/chat">
+          <Link to="https://main.dkada6vw7g925.amplifyapp.com/chat">
             <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-6 rounded-md">
             <MessageCircleCodeIcon/><h2 className="ml-3">Chat</h2></button>
           </Link>

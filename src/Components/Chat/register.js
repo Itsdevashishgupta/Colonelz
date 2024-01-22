@@ -105,7 +105,7 @@ const Register = () => {
 
 
 
-    <Link to='https://master.d1iuo6abnc6erf.amplifyapp.com/chat'>
+    <Link to='https://main.dkada6vw7g925.amplifyapp.com/chat'>
     <SidebarItem 
     icon={<MessageCircleCode/>}  
     text="Chat"  

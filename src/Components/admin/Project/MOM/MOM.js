@@ -1,16 +1,19 @@
-import React from "react";
-import { useState } from "react"; 
+import React from "react"; 
 import AppBar from "@mui/material/AppBar"; 
 import Box from "@mui/material/Box"; 
 import CssBaseline from "@mui/material/CssBaseline";  
 import Drawer from "@mui/material/Drawer"; 
+
 import Toolbar from "@mui/material/Toolbar"; 
-import photo from '../Project/logo.png'
+import photo from '../logo.png'
 import { Link } from "react-router-dom";
+import { Card,CardContent, TextField } from "@mui/material";
 import Data from './Data'
-import Noti from '../notification/App'
 import { LayoutDashboard, LayoutList, Menu, MessageCircleCodeIcon, Timer, Users, Warehouse } from "lucide-react";
-import ProjectData from './ProjectData'
+import Notification from "../../notification/App";
+import ClearableProp from "../../../Template/calender";
+import SelectLabels from "../../../Template/select";
+import BasicTextFields from "../../../Template/input";
 
 const drawWidth = 280; 
 
@@ -19,16 +22,7 @@ function App() {
 
 	const handleToggle = () => { 
 		setMobileViewOpen(!mobileViewOpen); 
-	};
-  
-  const [formData] = useState({
-    projectStatus: 'Painting',
-    projectStartDate: '2024-01-20',
-    timelineDate: '2024-01-20',
-    projectBudget: '5000',
-    receivedBudget: '2000',
-    remainingBudget: '3000',
-  });
+	}; 
 
 	const responsiveDrawer = ( 
 		<div style={{ backgroundColor: "#FFFFFF", 
@@ -41,8 +35,8 @@ function App() {
         </span>
         </div>
         <div className=" pr-10 pl-4 text-medium mt-[10%] font-semibold">
-          <Link to="/">
-            <button className=" font-['Nunito Sans', sans-serif] w-[100%]  flex  py-[9px] px-6 rounded-md">
+          <Link to="/user">
+            <button className=" font-['Nunito Sans', sans-serif] w-[100%]  flex py-[9px] px-6 rounded-md">
             <LayoutDashboard/><h2 className="ml-3">Dashboard</h2></button>
           </Link>
           <Link to="">
@@ -50,7 +44,7 @@ function App() {
             <Warehouse/><h2 className="ml-3">Quotation</h2></button>
           </Link>
           <Link to="/project/mom">
-            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-6 rounded-md">
+            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800  py-[9px] px-6 rounded-md">
             <Timer/><h2 className="ml-3">MOM</h2></button>
           </Link>
           <Link to="">
@@ -66,8 +60,109 @@ function App() {
 		</div> 
 	); 
 
+
+	const [state, setState] = React.useState({
+		top: false,
+		left: false,
+		bottom: false,
+		right: false,
+	  });
+	
+	  const toggleDrawer = (anchor, open) => (event) => {
+		console.log("yes");
+		if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+		  return;
+		}
+	
+		setState({ ...state, [anchor]: open });
+	  };
+	
+	  const list1 = (anchor) => (
+		<Box
+		  sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 600,fontFamily:"'Nunito Sans', sans-serif",marginBottom:12}}
+		  role="presentation"
+		
+		>
+		<div className='flex justify-between '>
+		<div>
+		 <h1 className='ml-8 font-semibold text-2xl mt-12'>Devashish Project  </h1>
+	
+		 </div>
+		 <div className='mt-12 mr-4 '></div>
+
+		 </div>
+		 <div className="flex  mx-8 mt-8 items-center">
+			<ClearableProp/>
+		 <div className="ml-4 items-center">
+		 <h1>Source Of Meeting</h1>
+			<SelectLabels/>
+		 </div>
+		 </div>
+		<div className=" ml-8 mt-8 ">
+		<h1 className="text-lg font-bold">Meeting attendees</h1>
+		 <div className=" mt-5 flex flex-wrap">
+		 <span>
+           <h1>Client Name</h1>
+		 <BasicTextFields/>
+		 </span>
+		 <span className=" ml-5">
+           <h1>Colonelz</h1>
+		 <BasicTextFields/>
+		 </span>
+		 <span className="mt-5">
+           <h1>Architect</h1>
+		 <BasicTextFields/>
+		 </span>
+		 <span className=" ml-5 mt-5">
+           <h1>Consultent</h1>
+		 <BasicTextFields/>
+		 </span>
+		 </div>
+		 </div>
+
+		 <div className="mt-5 ml-8">
+			<h1>Remarks</h1>
+			<Box
+      component="form"
+      sx={{
+        '& > :not(style)': {  width: 540 },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField id="outlined-multiline-static" label="" rows={3} multiline variant="outlined" />
+    </Box>
+		 </div>
+		 <div className="mt-5 ml-8">
+			<h1>Important Notes</h1>
+			<Box
+      component="form"
+      sx={{
+        '& > :not(style)': {  width: 540 },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField id="outlined-multiline-static" label="" rows={2} multiline variant="outlined" />
+    </Box>
+		 </div>
+         <div className="mt-5 ml-8 mr-8">
+		 <h1>Document</h1>
+		 <input
+            type="file"
+            id="file"
+            name="file"
+            className="w-full border-2 rounded py-2 px-3"
+          />
+
+		  <button className="bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800 py-3 px-16 rounded-sm mt-5" >Submit</button>
+		  </div>
+		 
+		</Box>
+	  );
+
 	return ( 
-		<div className="h-[100%] bg-[rgb(241 245 249)]"> 
+		<div className="h-[100vh] bg-[rgb(241 245 249)]"> 
 			<div> 
 				<Box sx={{ display: "flex" }}> 
 					<CssBaseline /> 
@@ -90,7 +185,7 @@ function App() {
 								<Menu/>
 							</button>
 							<div>
-                     <Noti/>
+                     <Notification/>
 					 </div>
 
 						 
@@ -142,47 +237,28 @@ function App() {
 						}} 
 					> 
 						<Toolbar /> 
-            <div className={` flex-1  `}>
-      
-      <div className=' bg-white  py-5 mt-5 rounded-lg flex  '>
-         <div className=' w-4/5 '>
-       <h1 className=" text-2xl font-bold ml-4 ">Devashish Project</h1>       
-       <h1 className=" text-md font-light mt-2 ml-4">Project Name: Interior designer</h1>     
-       <h1 className=" text-md font-light mt-2 ml-4">Project ID: 443941</h1>     
-       <h1 className=" text-md font-light mt-2 ml-4">Project Type: commercial</h1>     
-       <h1 className=" text-md font-light mt-2 ml-4">Description: this is commercial project</h1>     
-       </div>
-       <div className='w-1/5'>
-      <div className="relative">
-     <button
-       className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-[55%]"
-     
-     >
-       Edit
-       
-     </button>
-
-     
-
-
-   </div>
-       </div>
-       </div>
-       
-       <div className='flex pb-7 '>
-       <div className='w-[43%] mr-5 '>
-         <ProjectData mydata={formData} />
-         </div>
-         <div className='w-3/5  rounded-md bg-white mt-5'>
-         <Data/>
-         </div>
-       </div>
-      </div>
-
-      
+            <Card sx={{ minWidth: 275,overflow:"auto" } } >
+    <CardContent>
+	<div className="flex justify-between mr-9 ">
+    <h1 className="text-2xl font-bold mb-4 ml-6">Devashish Project</h1>
+	<button className="bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800 py-1 px-5" onClick={toggleDrawer('right',true)}>ADD</button>
+	</div>
+    <Data/>
+    </CardContent>
+    
+  </Card>
 					</Box> 
 				</Box> 
 			</div> 
+			<React.Fragment >
+    <Drawer
+            anchor={'right'}
+            open={state['right']}
+            onClose={toggleDrawer('right', false)}
+          >
+            {list1('right')}
+          </Drawer>
+          </React.Fragment>
 		</div> 
 	); 
 } 

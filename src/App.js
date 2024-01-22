@@ -9,6 +9,7 @@ import MOM from './Components/admin/MOM/MOM'
 import Lead from './Components/admin/Lead/Lead'
 import User from './Components/admin/User/User'
 import Client from './Components/admin/User/Client'
+import UserMom from './Components/admin/Project/MOM/MOM'
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -19,6 +20,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/project" element={<Project/>} />
+              <Route path="/project/mom" element={<UserMom/>} />
               <Route path="/inventory" element={<Inventory/>} />
               <Route path="/mom" element={<MOM/>} />
               <Route path="/lead" element={<Lead/>} />
