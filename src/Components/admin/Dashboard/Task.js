@@ -311,7 +311,7 @@ const App = () => {
               column !== 'Project_Type' && (
                 <td
           key={column}
-          className={`border-b-2 p-3 pl-6 w-[50%] `}
+          className={`border-b-2 p-3 pl-6 w-[50%] text-sm text-nowrap `}
         >
                   <p className={` w-1/2 rounded-md ${
             column === 'Phase' &&

@@ -314,7 +314,7 @@ const App = () => {
               column !== 'Project_Type' && (
                 <td
                   key={column}
-                  className={`border-b-2 p-3 pl-6 w-[30%] `}
+                  className={`border-b-2 p-3 pl-6 w-[30%] text-sm text-nowrap `}
                 >
                   {column === 'Project Name' ? (
                     <span
@@ -344,7 +344,7 @@ const App = () => {
       {/* <div className=' float-right flex'>
   
       <div className="mt-4 mr-6">
-        <span>Show rows per page:</span>
+        <span>Rows</span>
         <select value={rowsPerPage} onChange={handleRowsPerPageChange} className="ml-2 p-2 border rounded">
           <option value={5}>5</option>
           <option value={10}>10</option>

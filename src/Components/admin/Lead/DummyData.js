@@ -61,7 +61,6 @@ export const generateDummyData = (count) => {
       EmailID: `Timeline ${i}`,
       Status: `${role}`,
     });
-    console.log(data);
   }
 
   return datas;

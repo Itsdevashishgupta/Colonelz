@@ -199,13 +199,13 @@ const App = () => {
             <strong>Email:</strong> Devashish@gmail.com
           </p>
         </div>
-
         <div className="mb-4">
           <h2 className="text-xl font-bold mb-2">Actions</h2>
           <ul className="flex space-x-4">
             <li>
               <a href="mailto:john.doe@example.com" className="text-indigo-800 hover:underline flex">
                 <Mail/><p className=' ml-1'>Send Mail</p>
+                
               </a>
             </li>
             <li>
@@ -449,22 +449,15 @@ const App = () => {
         column !== 'Project_Type' && (
           <td
             key={column}
-            className={`border-b-2 p-4 pl-6 text-wrap cursor-pointer `}
+            className={` text-sm text-nowrap w-1/5 border-b-2 p-4 pl-6 text-sm cursor-pointer w-1/5 text-nowrap`}
             
           >
            
               <div>
                 <span
-                  className=""
+                  className=" "
                  
-                  style={{
-                    backgroundColor: item['Project Type'] === 'Commercial' ? '#e8e7fd' : (item['Project Type'] === 'Residential' ? '#e2f6e8' : 'inherit'),
-                    color: item['Project Type'] === 'Commercial' ? 'blue' : (item['Project Type'] === 'Residential' ? 'green' : 'inherit'),
-                    borderRadius:"5%",
-                    paddingLeft:"7px",
-                    paddingRight:"7px",
-                    // Add more styling based on your requirement
-                  }}
+                 
                 >
                   {item[column]}
                 </span>
@@ -483,7 +476,7 @@ const App = () => {
       <div className=' float-right flex'>
   
       <div className="mt-4 mr-6">
-        <span>Show rows per page:</span>
+        <span>Rows</span>
         <select value={rowsPerPage} onChange={handleRowsPerPageChange} className="ml-2 p-2 border-none">
           <option value={5}>5</option>
           <option value={10}>10</option>
@@ -498,7 +491,7 @@ const App = () => {
       onKeyPress={handleJumpToPageKeyPress} // Handle Enter key press
       className="  border-2 w-[56px]  border-none rounded [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
     />
-        <span className='ml-[-1.75rem]'>/ {totalPages}</span>
+        <span className='ml-[-2.75rem]'>/ {totalPages}</span>
       </div>
       <div className="mt-6 ">
         <button

@@ -330,7 +330,7 @@ const App = () => {
               column !== 'Project_Type' && (
                 <td
           key={column}
-          className={`border-b-2 p-4 pl-6 `}
+          className={`border-b-2 p-4 pl-6 text-sm text-nowrap `}
         >
                   <p className={` w-1/2 rounded-md ${
             column === 'Phase' &&
@@ -351,7 +351,7 @@ const App = () => {
       <div className=' float-right flex'>
   
       <div className="mt-4 mr-6">
-        <span>Show rows per page:</span>
+        <span>Rows</span>
         <select value={rowsPerPage} onChange={handleRowsPerPageChange} className="ml-2 p-2 border-none">
           <option value={5}>5</option>
           <option value={10}>10</option>
@@ -366,7 +366,7 @@ const App = () => {
       onKeyPress={handleJumpToPageKeyPress} // Handle Enter key press
       className="  border-2 w-[56px]  border-none rounded [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
     />
-        <span className='ml-[-1.75rem]'>/ {totalPages}</span>
+        <span className='ml-[-2.75rem]'>/ {totalPages}</span>
       </div>
       <div className="mt-6 ">
         <button
