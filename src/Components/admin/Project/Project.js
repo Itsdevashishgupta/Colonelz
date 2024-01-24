@@ -60,6 +60,131 @@ function App() {
 		</div> 
 	); 
 
+	const [state, setState] = React.useState({
+		top: false,
+		left: false,
+		bottom: false,
+		right: false,
+	  });
+	
+	  const toggleDrawer = (anchor, open) => (event) => {
+		console.log("yes");
+		if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+		  return;
+		}
+	
+		setState({ ...state, [anchor]: open });
+	  };
+	
+	  const list1 = (anchor) => (
+		<Box
+		  sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 400,fontFamily:"'Nunito Sans', sans-serif",marginBottom:12}}
+		  role="presentation"
+		
+		>
+		<div className=' '>
+		<div>
+		 <h1 className='ml-8 font-semibold text-2xl mt-12'>Add Project  </h1>
+	
+		 </div>
+		 <div className='mt-12 mr-4 '>
+		 <form className="w-4/5 ml-8 mt-5" >
+        <div className="mb-4">
+          <label htmlFor="clientName" className="block text-sm font-medium text-gray-600">
+            Project Name
+          </label>
+          <input
+            type="text"
+            id="clientName"
+            name="clientName"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="Phase" className="block text-sm font-medium text-gray-600">
+            Phase
+          </label>
+          <input
+            type="text"
+            id="Phase"
+            name="Phase"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="Project Type" className="block text-sm font-medium text-gray-600">
+            Project Type
+          </label>
+          <input
+            type="text"
+            id="Project Type"
+            name="Project Type"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="Client Name" className="block text-sm font-medium text-gray-600">
+            Client Name
+          </label>
+          <input
+            type="Client Name"
+            id="Client Name"
+            name="Client Name"
+           
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="Timeline" className="block text-sm font-medium text-gray-600">
+            Timeline
+          </label>
+          <input
+            type="Timeline"
+            id="Timeline"
+            name="Timeline"
+           
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="Timeline" className="block text-sm font-medium text-gray-600">
+            Timeline
+          </label>
+          <input
+            type="Timeline"
+            id="Timeline"
+            name="Timeline"
+           
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="Tag" className="block text-sm font-medium text-gray-600">
+            Tag
+          </label>
+          <input
+            type="Tag"
+            id="Tag"
+            name="Tag"
+           
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+
+        
+</form>
+		 </div>
+		 <div className="mt-5 ml-8 mr-8">
+		  <button className="bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800 py-2 px-12 rounded-md mt-5" >Submit</button>
+		  </div>
+
+		 </div>
+		</Box>
+	  );
+
 	return ( 
 		<div className="h-[100%] bg-[rgb(241 245 249)]"> 
 			<div> 
@@ -138,7 +263,12 @@ function App() {
 						<Toolbar /> 
             <Card sx={{ minWidth: 275,overflow:"auto" } } >
     <CardContent>
-    <h1 className="text-2xl font-bold mb-4 ml-6">Project</h1>
+	<div className="flex justify-between">
+    <h1 className="text-2xl font-bold mb-4 ml-6 w-10/2">Project</h1>
+	<button className=" bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800 w-[15%] mr-8 rounded-md"
+	onClick={toggleDrawer('right',true)}>
+	Add Project</button>
+	</div>
     <Data/>
     </CardContent>
     
@@ -146,6 +276,15 @@ function App() {
 					</Box> 
 				</Box> 
 			</div> 
+			<React.Fragment >
+    <Drawer
+            anchor={'right'}
+            open={state['right']}
+            onClose={toggleDrawer('right', false)}
+          >
+            {list1('right')}
+          </Drawer>
+          </React.Fragment>
 		</div> 
 	); 
 } 

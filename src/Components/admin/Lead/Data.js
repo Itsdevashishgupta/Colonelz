@@ -185,8 +185,6 @@ const App = () => {
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 750,fontFamily:"'Nunito Sans', sans-serif" }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
     >
      <div className={`flex-1 container  mt-7  `}>
       <div className=" mx-5 bg-white  rounded-md  ">
@@ -214,7 +212,7 @@ const App = () => {
               </a>
             </li>
             <li>
-              <a href="/chat" className="text-indigo-800 hover:underline flex">
+              <a href="https://main.dkada6vw7g925.amplifyapp.com/chat" className="text-indigo-800 hover:underline flex">
                 <MessageCircleCodeIcon/><p className=' ml-1'>Chat</p>
               </a>
             </li>
