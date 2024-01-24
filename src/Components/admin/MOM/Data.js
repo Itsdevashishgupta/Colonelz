@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { generateDummyData } from './DummyData';
-import {  ListFilter} from 'lucide-react';
+import {  ChevronLeft, ChevronRight, ListFilter} from 'lucide-react';
 import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
@@ -15,7 +15,8 @@ const App = () => {
   const [selectedRows] = useState([]);
   const [sortColumn, setSortColumn] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
-  const [rowsPerPage] = useState(10);
+  const [rowsPerPage,setRowsPerPage] = useState(10);
+  const [jumpToPage, setJumpToPage] = useState(1);
   const [selectedFilters, setSelectedFilters] = useState({});
   const [dynamicFilters, setDynamicFilters] = useState([]);
 
@@ -93,18 +94,60 @@ const App = () => {
     }
   });
 
-  
+  const totalRows = sortedData.length;
+  const totalPages = Math.ceil(totalRows / rowsPerPage);
 
   const paginatedData = sortedData.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
 
-
-
   const handleSort = (column) => {
     setSortColumn(column);
     setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'));
+  };
+
+  const handleRowsPerPageChange = (e) => {
+    setRowsPerPage(parseInt(e.target.value, 10));
+    setCurrentPage(1);
+  };
+
+
+
+  const handleJumpToPage = () => {
+    const page = parseInt(jumpToPage, 10);
+    if (!isNaN(page) && page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+      setJumpToPage(page);
+    }
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [data, searchText, selectedFilters, sortColumn, sortOrder, rowsPerPage]);
+
+  const handleJumpToPageChange = (e) => {
+    const value = e.target.value;
+    // Validate and update the jumpToPage state
+    setJumpToPage(value);
+    // Also update the currentPage state if needed
+    // setCurrentPage(value); // Uncomment this line if you want to update currentPage as well
+  };
+  
+  const handleJumpToPageKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleJumpToPage();
+    }
+  };
+  
+  const handleLeftButtonClick = () => {
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
+    setJumpToPage(currentPage - 1); // Update the input value when clicking the left button
+  };
+  
+  const handleRightButtonClick = () => {
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+    setJumpToPage(currentPage + 1); // Update the input value when clicking the right button
   };
 
 
@@ -177,6 +220,8 @@ const App = () => {
      
     </Box>
   );
+
+
   return (
     <div className="container mx-auto bg-white pt-3">
     <div className="mb-4 flex justify-between ml-6">
@@ -318,7 +363,7 @@ const App = () => {
         column !== 'Project_Type' && (
           <td
             key={column}
-            className={` text-sm text-nowrap w-1/5 border-b-2 p-4 pl-6 text-wrap hover:cursor-pointer`}
+            className={` text-sm w-1/5 border-b-2 p-4 pl-6 text-wrap hover:cursor-pointer`}
           >
             {column === 'ProjectName' ? (
               <div>
@@ -351,6 +396,43 @@ const App = () => {
 </tbody>
 
     </table>
+    <div className=' float-right flex'>
+  
+      <div className="mt-4 mr-6">
+        <span>Rows:</span>
+        <select value={rowsPerPage} onChange={handleRowsPerPageChange} className=" border-none">
+          <option value={5}>5</option>
+          <option value={10}>10</option>
+          <option value={15}>15</option>
+          <option value={20}>20</option>
+        </select>
+        <span className="ml-4 mr-1"> Page:</span>
+        <input
+      type="number"
+      value={jumpToPage}
+      onChange={handleJumpToPageChange}
+      onKeyPress={handleJumpToPageKeyPress} // Handle Enter key press
+      className="  border-2 w-[56px]  border-none rounded [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+    />
+        <span className='ml-[-2.75rem]'>/ {totalPages}</span>
+      </div>
+      <div className="mt-4 ">
+        <button
+          className="mr-2  text-slate-400 h-[5px]"
+          onClick={handleLeftButtonClick}
+          disabled={currentPage === 1}
+        >
+         <ChevronLeft/>
+        </button>
+        <button
+          className=" text-slate-400"
+          onClick={handleRightButtonClick}
+          disabled={currentPage === totalPages}
+       >
+           <ChevronRight/>
+        </button>
+      </div>
+      </div>
     <React.Fragment >
     <Drawer
             anchor={'right'}

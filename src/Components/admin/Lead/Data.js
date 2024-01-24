@@ -447,13 +447,13 @@ const App = () => {
         column !== 'Project_Type' && (
           <td
             key={column}
-            className={` text-sm text-nowrap w-1/5 border-b-2 p-4 pl-6 text-sm cursor-pointer w-1/5 text-nowrap`}
+            className={` text-sm text-nowrap w-1/5 border-b-2 p-4 pl-6 cursor-pointer `}
             
           >
            
               <div>
                 <span
-                  className=" "
+                  className=""
                  
                  
                 >
@@ -474,14 +474,14 @@ const App = () => {
       <div className=' float-right flex'>
   
       <div className="mt-4 mr-6">
-        <span>Rows</span>
-        <select value={rowsPerPage} onChange={handleRowsPerPageChange} className="ml-2 p-2 border-none">
+        <span>Rows:</span>
+        <select value={rowsPerPage} onChange={handleRowsPerPageChange} className=" border-none">
           <option value={5}>5</option>
           <option value={10}>10</option>
           <option value={15}>15</option>
           <option value={20}>20</option>
         </select>
-        <span className="ml-4"> Page:</span>
+        <span className="ml-4 mr-1"> Page:</span>
         <input
       type="number"
       value={jumpToPage}
@@ -491,7 +491,7 @@ const App = () => {
     />
         <span className='ml-[-2.75rem]'>/ {totalPages}</span>
       </div>
-      <div className="mt-6 ">
+      <div className="mt-4 ">
         <button
           className="mr-2  text-slate-400 h-[5px]"
           onClick={handleLeftButtonClick}

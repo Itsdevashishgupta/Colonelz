@@ -16,7 +16,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
-const drawWidth = 280; 
+const drawWidth = 240; 
 
 
 function App() { 
@@ -33,36 +33,36 @@ function App() {
 	const responsiveDrawer = ( 
 		<div style={{ backgroundColor: "#FFFFFF", 
 			height: "100%",fontFamily:"'Nunito Sans', sans-serif", }}> 
-      <div className="mt-5 px-7">
+      <div className="mt-5 px-6">
 	        <img src={photo} className='w-[22%] ml-[15%]' alt="" />
         <span>
           <h1 className=' font-bold text-red-600 border-b-2 w-28 text-lg border-red-200 ml-[5%]'>COLONELZ</h1>
           <p className=' text-xs font-semibold ml-[5%]'>BUILDING RELATIONSHIPS</p>
         </span>
         </div>
-        <div className=" pr-10 pl-4 text-medium mt-[10%] font-semibold">
+        <div className=" pr-8 pl-4 text-medium mt-[10%] font-semibold">
           <Link to="/">
-            <button className=" font-['Nunito Sans', sans-serif] w-[100%]  flex py-[9px] px-6 rounded-md">
+            <button className=" font-['Nunito Sans', sans-serif] w-[100%]  flex py-[9px] px-2 rounded-md">
             <LayoutDashboard/><h2 className="ml-3">Dashboard</h2></button>
           </Link>
           <Link to="/project">
-            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-6 rounded-md">
+            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-2 rounded-md">
             <LayoutList/><h2 className="ml-3">All Projects</h2></button>
           </Link>
           <Link to="/inventory">
-            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-6 rounded-md">
+            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-2 rounded-md">
             <Warehouse/><h2 className="ml-3">Inventory</h2></button>
           </Link>
           <Link to="/mom">
-            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-6 rounded-md">
+            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-2 rounded-md">
             <Timer/><h2 className="ml-3">MOM</h2></button>
           </Link>
           <Link to="/lead">
-            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-6 rounded-md">
+            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-2 rounded-md">
             <Users/><h2 className="ml-3">Lead Management</h2></button>
           </Link>
           <Link to="https://main.dkada6vw7g925.amplifyapp.com/chat">
-            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-6 rounded-md">
+            <button className=" font-['Nunito Sans', sans-serif] w-[100%] mt-3  flex  py-[9px] px-2 rounded-md">
             <MessageCircleCodeIcon/><h2 className="ml-3">Chat</h2></button>
           </Link>
         </div>
@@ -258,7 +258,7 @@ function App() {
       </span>
       <span className=" flex justify-between mr-5">
         <input type="text" className='w-4/5 h-12 border-gray-300 border rounded-md mr-6' />
-        <button className=" bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800 py-1 px-6 rounded-md">Submit</button>
+        <button className=" bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800 py-1 px-2 rounded-md">Submit</button>
         </span>
         </div>
       </div>

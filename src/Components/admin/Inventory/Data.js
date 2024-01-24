@@ -351,8 +351,8 @@ const App = () => {
       <div className=' float-right flex'>
   
       <div className="mt-4 mr-6">
-        <span>Rows</span>
-        <select value={rowsPerPage} onChange={handleRowsPerPageChange} className="ml-2 p-2 border-none">
+        <span className=''>Rows:</span>
+        <select value={rowsPerPage} onChange={handleRowsPerPageChange} className=" border-none">
           <option value={5}>5</option>
           <option value={10}>10</option>
           <option value={15}>15</option>
@@ -368,7 +368,7 @@ const App = () => {
     />
         <span className='ml-[-2.75rem]'>/ {totalPages}</span>
       </div>
-      <div className="mt-6 ">
+      <div className="mt-4 ">
         <button
           className="mr-2  text-slate-400 h-[5px]"
           onClick={handleLeftButtonClick}
