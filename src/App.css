@@ -2,3 +2,9 @@
   font-family: 'Nunito Sans', sans-serif;
   background-color: rgb(241 245 249);
 }
+.sticky-header {
+  position: fixed;
+  top: 0;
+  background-color: #f6f6f7;
+  z-index: 1;
+}

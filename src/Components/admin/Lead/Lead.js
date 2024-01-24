@@ -87,7 +87,7 @@ function App() {
 		>
 		<div className='flex justify-between '>
 		<div>
-		 <h1 className='ml-8 font-semibold text-2xl mt-12'>Devashish Project  </h1>
+		 <h1 className='ml-8 font-semibold text-2xl mt-12'>Lead Management  </h1>
 	
 		 </div>
 
@@ -248,7 +248,7 @@ function App() {
             <Card sx={{ minWidth: 275,overflow:"auto" } } >
     <CardContent>
     <div className="flex justify-between mr-9 ">
-    <h1 className="text-2xl font-bold mb-4 ml-6">Devashish Project</h1>
+    <h1 className="text-2xl font-bold mb-4 ml-6">Leads</h1>
 	<button className="bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800  px-5 text-center  rounded-md " onClick={toggleDrawer('right',true)}>ADD</button>
 	</div>
     <Data/>
