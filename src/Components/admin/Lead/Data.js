@@ -362,7 +362,7 @@ const App = () => {
                     <MenuItem value="" disabled style={{ fontFamily: "'Jost', sans-serif" }}>
                       Select Column
                     </MenuItem>
-                    {['Project Type', 'Phase', 'Tag'].map((column) => (
+                    {['Client Name', 'Status'].map((column) => (
   <MenuItem key={column} value={column} style={{ fontFamily: "'Jost', sans-serif" }}>
     {column}
   </MenuItem>

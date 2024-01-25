@@ -5,6 +5,7 @@ import Popover from '@mui/material/Popover';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import { Box, Drawer } from '@mui/material';
 
 const App = () => {
   const [data, setData] = useState(generateDummyData(100));
@@ -191,6 +192,87 @@ const App = () => {
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
     setJumpToPage(currentPage + 1); // Update the input value when clicking the right button
   };
+
+  const [state, setState] = React.useState({
+		top: false,
+		left: false,
+		bottom: false,
+		right: false,
+	  });
+	
+	  const toggleDrawer = (anchor, open) => (event) => {
+		console.log("yes");
+		if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+		  return;
+		}
+	
+		setState({ ...state, [anchor]: open });
+	  };
+	
+	  const list1 = (anchor) => (
+		<Box
+		  sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 400,fontFamily:"'Nunito Sans', sans-serif",marginBottom:12}}
+		  role="presentation"
+		
+		>
+		<div className='flex justify-between '>
+		<div>
+		 <h1 className='ml-8 font-semibold text-2xl mt-12'>Inventory  </h1>
+	
+		 </div>
+
+		 </div>
+     <form className="w-4/5 ml-8 mt-5" >
+        <div className="mb-4">
+          <label htmlFor="clientName" className="block text-sm font-medium text-gray-600">
+            Items
+          </label>
+          <input
+            type="text"
+            id="clientName"
+            name="clientName"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="leadDate" className="block text-sm font-medium text-gray-600">
+            Quantity
+          </label>
+          <input
+            type="number"
+            id="leadDate"
+            name="leadDate"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-600">
+            Amount
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+
+       
+
+       
+</form>
+		
+
+		
+		
+         <div className="mt-5 ml-8 mr-8">
+		  <button className="bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800 py-2 px-12 rounded-sm mt-5" >Submit</button>
+		  </div>
+		 
+		</Box>
+	  );
 
   return (
     <div className="container mx-auto bg-white pt-3">
@@ -385,7 +467,15 @@ const App = () => {
         </button>
       </div>
       </div>
-      
+      <React.Fragment >
+    <Drawer
+            anchor={'right'}
+            open={state['right']}
+            onClose={toggleDrawer('right', false)}
+          >
+            {list1('right')}
+          </Drawer>
+          </React.Fragment>
     </div>
   );
 };
